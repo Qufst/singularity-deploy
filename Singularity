@@ -18,6 +18,8 @@ From: continuumio/miniconda3
 
 %environment
     # Activation de l'environnement micromamba
+    export PATH=/micromamba/envs/myenv/bin:$PATH
+    export CONDA_PREFIX=/micromamba/envs/myenv
     micromamba activate myenv
 
 %runscript
