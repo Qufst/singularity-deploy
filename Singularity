@@ -6,7 +6,7 @@ From: continuumio/miniconda3
     apt-get update && apt-get install -y wget bzip2
 
     # Téléchargement et installation de micromamba
-    curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+    wget -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
     # chemins
     MICROMAMBA_BIN="bin/micromamba"
