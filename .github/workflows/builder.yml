@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Get Latest Tag
         run: |
             # Get the latest tag, we won't build if it's the current
@@ -24,7 +24,7 @@ jobs:
       - name: Define Repository Name and Release Version
         run: |
             repo=$(echo "${GITHUB_REPOSITORY/\//-}")
-            echo "0.0.27" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
+            echo "0.0.28" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
             release=$(cat VERSION)
             echo "reponame=$repo" >> $GITHUB_ENV
             echo "release_tag=$release" >> $GITHUB_ENV
