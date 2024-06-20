@@ -6,33 +6,26 @@ From: continuumio/miniconda3
     apt-get update && apt-get install -y wget bzip2
 
     # Téléchargement et installation de micromamba
-    wget -qO micromamba.tar.bz2 https://micromamba.snakepit.net/api/micromamba/linux-64/latest
-    tar xvjf micromamba.tar.bz2 -C /usr/local/bin --strip-components=1 bin/micromamba
+    curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
     # chemins
-    MICROMAMBA_BIN="/usr/local/bin/micromamba"
+    MICROMAMBA_BIN="bin/micromamba"
 
     # Vérifier si micromamba existe et est exécutable
     if [ ! -x "$MICROMAMBA_BIN" ]; then
       echo "micromamba binary not found or not executable"
       exit 1
     fi
-    
+    ls -l $MICROMAMBA_BIN
     # initialisation du shell pour micromamba
-    eval "$("$MICROMAMBA_BIN" shell hook -s bash)"
-
-    # Création de l'environnement conda
-    micromamba create -y -n myenv -f /environment.yml
-    micromamba clean --all --yes
+    ./bin/micromamba shell init -s bash -p ~/micromamba
+    source ~/.bashrc
 
     # Copie du fichier index.qmd
     mkdir -p /project
     cp index.qmd /project/
 
 %environment
-    # Activation de l'environnement micromamba
-    export PATH=/micromamba/envs/myenv/bin:$PATH
-    export MICROMAMBA_PREFIX=/micromamba/envs/myenv
     micromamba activate myenv
 
 %runscript
