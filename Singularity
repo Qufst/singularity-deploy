@@ -22,6 +22,7 @@ From: continuumio/miniconda3
 
     # Copie du fichier index.qmd
     mkdir -p /project
+    ls -l ~/
     cp ~/index.qmd ~/project/
 
 %environment
