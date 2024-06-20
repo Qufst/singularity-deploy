@@ -22,10 +22,10 @@ From: continuumio/miniconda3
 
     # Copie du fichier index.qmd
     mkdir -p /project
-    cp index.qmd /project/
+    cp ~/index.qmd ~/project/
 
 %environment
     micromamba activate myenv
 
 %runscript
-    exec quarto render /project/index.qmd
+    exec quarto render ~/project/index.qmd
