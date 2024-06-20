@@ -7,7 +7,7 @@ From: continuumio/miniconda3
 
     # Téléchargement et installation de micromamba
     wget -qO micromamba.tar.bz2 https://micromamba.snakepit.net/api/micromamba/linux-64/latest
-    tar xvjf micromamba.tar.bz2 -C /usr/local/bin
+    tar xvjf micromamba.tar.bz2 -C /usr/local/bin --strip-components=1 bin/micromamba
 
     # chemins
     MICROMAMBA_BIN="/usr/local/bin/micromamba"
