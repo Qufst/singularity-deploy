@@ -6,13 +6,10 @@ From: continuumio/miniconda3
     apt-get update && apt-get install -y wget bzip2
 
     # Téléchargement et installation de micromamba
-    wget -qO- https://micromamba.snakepit.net/api/micromamba/linux-64/latest | tar -xvj -C /usr/local/bin
+    wget -O https://micromamba.snakepit.net/api/micromamba/linux-64/latest | tar xvj -C /usr/local/bin
 
     # chemins
-    MICROMAMBA_DIR="$HOME/micromamba-bin"
-    MICROMAMBA_BIN="$MICROMAMBA_DIR/micromamba"
-    MICROMAMBA_ROOT="$HOME/micromamba"
-    BASHRC="$HOME/.bashrc"
+    MICROMAMBA_BIN="/usr/local/bin/micromamba"
 
     # Vérifier si micromamba existe et est exécutable
     if [ ! -x "$MICROMAMBA_BIN" ]; then
