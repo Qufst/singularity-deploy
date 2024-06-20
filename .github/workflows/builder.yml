@@ -24,7 +24,7 @@ jobs:
       - name: Define Repository Name and Release Version
         run: |
             repo=$(echo "${GITHUB_REPOSITORY/\//-}")
-            echo "0.0.22" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
+            echo "0.0.23" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
             release=$(cat VERSION)
             echo "reponame=$repo" >> $GITHUB_ENV
             echo "release_tag=$release" >> $GITHUB_ENV

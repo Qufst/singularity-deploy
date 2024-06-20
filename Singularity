@@ -19,7 +19,6 @@ From: continuumio/miniconda3
     ls -l $MICROMAMBA_BIN
     # initialisation du shell pour micromamba
     ./bin/micromamba shell init -s bash -p ~/micromamba
-    source ~/.bashrc
 
     # Copie du fichier index.qmd
     mkdir -p /project
