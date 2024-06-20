@@ -24,7 +24,7 @@ jobs:
       - name: Define Repository Name and Release Version
         run: |
             repo=$(echo "${GITHUB_REPOSITORY/\//-}")
-            echo "0.0.30" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
+            echo "0.0.31" > VERSION  # changer ça et l'augmenter de 1 sinon ça ne marchera pas
             release=$(cat VERSION)
             echo "reponame=$repo" >> $GITHUB_ENV
             echo "release_tag=$release" >> $GITHUB_ENV
@@ -80,5 +80,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           tag_name: ${{ env.release_tag }}
         run: |
-          hub configure
           hub release edit $(find . -type f -name "*.sif" -printf "-a %p ") -m "" "$tag_name" 
