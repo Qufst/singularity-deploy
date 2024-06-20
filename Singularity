@@ -2,6 +2,11 @@ Bootstrap: docker
 From: continuumio/miniconda3
 
 %post
+    # Copie du fichier index.qmd
+    mkdir -p /project
+    ls -l ~/index.qmd
+    cp ~/index.qmd ~/project/
+
     # Mise à jour et installation de dépendances
     apt-get update && apt-get install -y wget bzip2
 
@@ -20,10 +25,6 @@ From: continuumio/miniconda3
     # initialisation du shell pour micromamba
     ./bin/micromamba shell init -s bash -p ~/micromamba
 
-    # Copie du fichier index.qmd
-    mkdir -p /project
-    ls -l ~/
-    cp ~/index.qmd ~/project/
 
 %environment
     micromamba activate myenv
